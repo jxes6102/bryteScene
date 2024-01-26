@@ -21,7 +21,6 @@
 <script setup>
 /*eslint-disable*/
 import { getIntroduction } from '@/api/api'
-import { useStore } from "vuex";
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 import { ImageInsert } from '@ckeditor/ckeditor5-image';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
@@ -39,7 +38,7 @@ import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import UploadAdapter from '@/utility/UploadAdapter';
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
-const store = useStore()
+
 const editorData = ref("")
 function MyCustomUploadAdapterPlugin( editor ) {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
@@ -89,10 +88,6 @@ const editorConfig = ref({
         ]
     },
 
-})
-
-const isMobile = computed(() => {
-    return store.state.isMobile
 })
 
 const init = async() => {

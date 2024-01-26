@@ -21,20 +21,21 @@
 /*eslint-disable*/
 import {getIntroduction} from '@/api/api'
 import { useStore } from "vuex";
-
+import { useMobileStore,useUserStore } from './stores/index';
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
 const router = useRouter()
 const introductionData = ref([])
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const isSchool = computed(() => {

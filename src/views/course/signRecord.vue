@@ -11,14 +11,12 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import { getSignRecord } from '@/api/api'
 import { ref,computed } from 'vue'
 import { useRouter,useRoute } from "vue-router";
 
 const router = useRouter()
 const route = useRoute()
-const store = useStore()
 
 const signData = ref([])
 const apiLoading = ref(false)
@@ -46,12 +44,6 @@ const init = async() => {
         console.log(error);
     })
 }
-
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
-
 
 init()
 

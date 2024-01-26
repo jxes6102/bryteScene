@@ -69,7 +69,6 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import { getClassList } from '@/api/api'
 import { ref,computed,watch,provide  } from 'vue'
 import { useRouter } from "vue-router";
@@ -77,7 +76,6 @@ import dialogView from "@/components/dialogView.vue"
 import dateSelect from '@/components/dateSelect.vue'
 
 const router = useRouter()
-const store = useStore()
 
 const classList = ref([])
 const apiLoading = ref(false)
@@ -110,10 +108,6 @@ const changeData = (value) => {
     dayData.value = value
     init()
 }
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 const toDetail = (item) => {
     // console.log('item',item.HDYDATE)

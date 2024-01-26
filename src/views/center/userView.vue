@@ -28,12 +28,9 @@
 <script setup>
 /*eslint-disable*/
 import {getUserList} from '@/api/api'
-import { useStore } from "vuex";
-
 import {ref,computed,watch } from 'vue'
 import { useRouter,useRoute } from "vue-router";
 
-const store = useStore()
 const router = useRouter()
 
 const userList = ref([])
@@ -56,10 +53,6 @@ const init = async() => {
 }
 
 init()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 const toProfile = (item) => {
     router.push({ 

@@ -39,7 +39,6 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import { getClassDetail } from '@/api/api'
 import { ref } from 'vue'
 import { useRouter,useRoute } from "vue-router";

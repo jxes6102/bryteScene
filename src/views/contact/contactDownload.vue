@@ -41,12 +41,13 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
+import { useMobileStore,useUserStore } from './stores/index';
 import { ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 
 const router = useRouter()
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
 
 const apiLoading = ref(false)
 const init = async() => {
@@ -57,11 +58,11 @@ const init = async() => {
 init()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const list = ref([])

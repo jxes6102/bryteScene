@@ -141,21 +141,21 @@
   
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
-
+import { useMobileStore,useUserStore } from './stores/index';
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 import 'animate.css';
 
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
 const router = useRouter()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const statusList = ref({})
