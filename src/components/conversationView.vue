@@ -29,7 +29,7 @@
 /*eslint-disable*/
 import 'animate.css';
 import { ref,computed,inject } from "vue";
-import { useMobileStore } from './stores/index';
+import { useMobileStore } from '@/stores/index';
 import { useRouter } from "vue-router";
 const mobileStore = useMobileStore()
 const router = useRouter()

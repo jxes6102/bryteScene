@@ -49,7 +49,7 @@
 <script setup>
 /*eslint-disable*/
 import { ref,computed } from "vue";
-import { useMobileStore,useLoginStore } from './stores/index';
+import { useMobileStore,useLoginStore } from '@/stores/index';
 import { useRouter } from "vue-router";
 const mobileStore = useMobileStore()
 const loginStore = useLoginStore()

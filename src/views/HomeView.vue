@@ -268,7 +268,7 @@
 <script setup>
 /*eslint-disable*/
 import {getBannerSearch,getNewsSearch} from '@/api/api'
-import { useMobileStore } from './stores/index';
+import { useMobileStore } from '@/stores/index';
 import {ref,computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { useRouter } from "vue-router";

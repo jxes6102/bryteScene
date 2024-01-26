@@ -60,7 +60,7 @@
 
 <script setup>
 /*eslint-disable*/
-import { useMobileStore,useUserStore } from './stores/index';
+import { useMobileStore,useUserStore } from '@/stores/index';
 import { ref,computed,provide,nextTick,onMounted } from 'vue'
 import { useRouter } from "vue-router";
 

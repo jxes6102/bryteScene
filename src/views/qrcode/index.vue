@@ -99,7 +99,7 @@
 /*eslint-disable*/
 import { ref,computed,onMounted,provide } from 'vue';
 import { checkQR } from '@/api/api'
-import { useMobileStore } from './stores/index';
+import { useMobileStore } from '@/stores/index';
 import { QrcodeStream } from 'vue-qrcode-reader'
 import dialogView from "@/components/dialogView.vue"
 

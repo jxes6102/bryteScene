@@ -168,7 +168,7 @@ import { getCall,initTodayRollCall,initTodayPickup } from '@/api/api'
 import { ref,computed,onBeforeUnmount,onMounted } from 'vue'
 import { useRouter } from "vue-router";
 // import dialogView from "@/components/dialogView.vue"
-import { useAnnounceStore,useMobileStore } from './stores/index';
+import { useAnnounceStore,useMobileStore } from '@/stores/index';
 import 'animate.css'
 
 const announceStore = useAnnounceStore()

@@ -61,7 +61,7 @@
 /*eslint-disable*/
 import { testLogout } from '@/api/api'
 import { ref,computed,watch } from "vue";
-import { useMobileStore,useUserStore,useLoginStore } from './stores/index';
+import { useMobileStore,useUserStore,useLoginStore } from '@/stores/index';
 import { useRouter,useRoute } from "vue-router";
 const mobileStore = useMobileStore()
 const userStore = useUserStore()

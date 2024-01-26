@@ -20,8 +20,7 @@
 <script setup>
 /*eslint-disable*/
 import {getIntroduction} from '@/api/api'
-import { useStore } from "vuex";
-import { useMobileStore,useUserStore } from './stores/index';
+import { useMobileStore,useUserStore } from '@/stores/index';
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 

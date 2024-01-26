@@ -64,12 +64,12 @@
 <script setup>
 /*eslint-disable*/
 import {getNewsSearch,getNew} from '@/api/api'
-import { useStore } from "vuex";
-
+import { useMobileStore,useUserStore } from '@/stores/index';
 import {ref,computed,watch } from 'vue'
 import { useRouter,useRoute } from "vue-router";
 
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
 const router = useRouter()
 const route = useRoute()
 const hasNews = ref(false)
@@ -119,11 +119,11 @@ watch(route, (newVal,oldval) => {
 },{ deep: true,immediate: true });
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const isSchool = computed(() => {

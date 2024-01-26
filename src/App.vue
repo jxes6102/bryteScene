@@ -35,7 +35,7 @@
   import { getLineLoginCallback } from '@/api/api'
   import { ref,computed,onMounted,onBeforeUnmount } from 'vue';
   import { useRouter,useRoute } from "vue-router";
-  import { useMobileStore,useMenuStore,useAnnounceStore,useLoginStore } from './stores/index';
+  import { useMobileStore,useMenuStore,useAnnounceStore,useLoginStore } from '@/stores/index';
   import 'animate.css';
   //console.log('test 2')
   const mobileStore = useMobileStore()

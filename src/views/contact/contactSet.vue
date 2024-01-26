@@ -141,7 +141,7 @@
   
 <script setup>
 /*eslint-disable*/
-import { useMobileStore,useUserStore } from './stores/index';
+import { useMobileStore,useUserStore } from '@/stores/index';
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 import 'animate.css';

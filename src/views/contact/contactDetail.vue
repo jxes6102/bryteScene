@@ -326,7 +326,7 @@ import { useRouter } from "vue-router";
 import dialogView from "@/components/dialogView.vue"
 import conversationView from "@/components/conversationView.vue"
 import dateSelect from '@/components/dateSelect.vue'
-import { useMobileStore,useUserStore } from './stores/index'
+import { useMobileStore,useUserStore } from '@/stores/index'
 
 const router = useRouter()
 const mobileStore = useMobileStore()

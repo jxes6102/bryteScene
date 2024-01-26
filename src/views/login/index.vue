@@ -64,7 +64,7 @@
 /*eslint-disable*/
 import { testLogin,getLineInformation,getCaptcha } from '@/api/api'
 import { ref,computed,onMounted } from 'vue';
-import { useLoginStore } from './stores/index';
+import { useLoginStore } from '@/stores/index';
 import { useRouter } from "vue-router";
 const loginStore = useLoginStore()
 const router = useRouter()
