@@ -42,17 +42,11 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import { ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 import dateSelect from '@/components/dateSelect.vue'
 
 const router = useRouter()
-const store = useStore()
-
-const roleID = computed(() => {
-    return store.state.roleID
-})
 
 const list = ref([
     {
@@ -109,10 +103,6 @@ const init = async() => {
 }
 
 init()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 </script>
 

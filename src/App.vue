@@ -35,24 +35,27 @@
   import { getLineLoginCallback } from '@/api/api'
   import { ref,computed,onMounted,onBeforeUnmount } from 'vue';
   import { useRouter,useRoute } from "vue-router";
-  import { useStore } from "vuex";
+  import { useMobileStore,useMenuStore,useAnnounceStore,useLoginStore } from './stores/index';
   import 'animate.css';
   //console.log('test 2')
-  const store = useStore()
+  const mobileStore = useMobileStore()
+  const menuStore = useMenuStore()
+  const announceStore = useAnnounceStore()
+  const loginStore = useLoginStore()
   const router = useRouter()
   const route = useRoute()
   const scrollStutus = ref(true)
 
   const announceStatus = computed(() => {
-    return store.state.announceStatus
+    return announceStore.status
   })
 
   const menuStatus = computed(() => {
-      return store.state.menuStatus
+      return menuStore.status
   })
 
   const isMobile = computed(() => {
-      return store.state.isMobile
+      return mobileStore.isMobile
   })
 
   const handleScroll = (el) => {
@@ -64,7 +67,7 @@
   }
 
   const setWidth = () => {
-    store.commit('setMobile',window.innerWidth)
+    mobileStore.setMobile(window.innerWidth)
   }
   
   const headerItem = ref(null)
@@ -72,7 +75,7 @@
   const init = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      store.commit('changeLoginStatus',true)
+      loginStore.isLogin()
     }
   }
   init()
@@ -96,7 +99,7 @@
         // console.log('getLineLoginCallback',res)
         if(res.data.status){
           console.log('getLineLoginCallback',res.data.data)
-          store.commit('setToken',res.data.data)
+          loginStore.setToken(res.data.data)
           // window.location.href = window.location.origin + window.location.pathname
           // window.open((window.location.origin + window.location.pathname), '_self')
           window.location.replace((window.location.origin + window.location.pathname))

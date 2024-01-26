@@ -140,18 +140,12 @@
 <script setup>
 /*eslint-disable*/
 import { ref,computed,watch,provide } from "vue";
-import { useStore } from "vuex";
 import { useRouter,useRoute } from "vue-router";
 import dialogView from "@/components/dialogView.vue"
 import dateSelect from '@/components/dateSelect.vue'
 
-const store = useStore()
 const router = useRouter()
 const route = useRoute()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 const apiLoading = ref(false)
 //尚未註冊 奇怪

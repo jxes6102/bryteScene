@@ -29,9 +29,9 @@
 /*eslint-disable*/
 import 'animate.css';
 import { ref,computed,inject } from "vue";
-import { useStore } from "vuex";
+import { useMobileStore } from './stores/index';
 import { useRouter } from "vue-router";
-const store = useStore()
+const mobileStore = useMobileStore()
 const router = useRouter()
 
 const props = defineProps({
@@ -46,7 +46,7 @@ const props = defineProps({
 })
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const test = () => {

@@ -51,12 +51,12 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
+import { useMobileStore } from '@/stores/index';
 import { ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 
 const router = useRouter()
-const store = useStore()
+const mobileStore = useMobileStore()
 
 const memberList = ref([
     {
@@ -143,7 +143,7 @@ const init = async() => {
 init()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const className = ref('Option6')

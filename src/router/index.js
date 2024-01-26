@@ -28,10 +28,9 @@ import qrcodeView from '../views/qrcode'
 import recordView from '../views/record'
 import latestNewsView from '../views/news/latestNews.vue'
 import loginView from '../views/login/'
-import checkView from '../views/login/checkView.vue'
 import testView from '../views/testView.vue'
 import errorView from '../views/errorView.vue'
-import { useStore } from "vuex";
+import { useLoginStore,useUserStore } from '@/stores/index'
 
 const routes = [
   {
@@ -104,11 +103,11 @@ const routes = [
     name: 'contact',
     component: contactView,
     beforeEnter: () => {
-      const store = useStore()
+      const userStore = useUserStore()
       // console.log(store.state.roleID)
       // console.log('to',to)
       // console.log('from',from)
-      if(store.state.roleID == 3){
+      if(userStore.roleID == 3){
         return '/contactDetail'
       }
       // reject the navigation
@@ -196,11 +195,6 @@ const routes = [
     component: loginView,
   },
   {
-    path: '/checkView',
-    name: 'checkView',
-    component: checkView,
-  },
-  {
     path: '/testView',
     name: 'testView',
     component: testView,
@@ -227,7 +221,7 @@ const router = createRouter({
 })
 
 //可在未登入時進入
-const allow = ['login','home','latestNewsView','checkView','testView']
+const allow = ['login','home','latestNewsView','testView']
 //需特定權限
 const authority = [
   'editNews',
@@ -246,12 +240,14 @@ const authority = [
 ]
 
 router.beforeEach((to, from) => {
-  const store = useStore()
+  const loginStore = useLoginStore()
+  const userStore = useUserStore()
+
   // console.log('to',to.name)
-  if(!(allow.includes(to.name) || store.state.isLogin)){
+  if(!(allow.includes(to.name) || loginStore?.status)){
     return '/'
   }
-  if((authority.includes(to.name)) && (store.state.roleID == 3)){
+  if((authority.includes(to.name)) && (userStore.roleID == 3)){
     return '/'
   }
 

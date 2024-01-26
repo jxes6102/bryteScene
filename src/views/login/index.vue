@@ -64,15 +64,10 @@
 /*eslint-disable*/
 import { testLogin,getLineInformation,getCaptcha } from '@/api/api'
 import { ref,computed,onMounted } from 'vue';
-import { useStore } from "vuex";
+import { useLoginStore } from './stores/index';
 import { useRouter } from "vue-router";
-const store = useStore()
+const loginStore = useLoginStore()
 const router = useRouter()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
-
 const captchaData = ref({})
 const setCaptcha = () => {
     getCaptcha().then((res) => {
@@ -182,7 +177,7 @@ const login = async() => {
 
   await testLogin(formData).then((res) => {
       if(res.data.status){
-          store.commit('setToken',res.data.data)
+          loginStore.setToken(res.data.data)
           resetForm()
           router.push({ path: '/' })
       }else{

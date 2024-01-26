@@ -49,17 +49,18 @@
 <script setup>
 /*eslint-disable*/
 import { ref,computed } from "vue";
-import { useStore } from "vuex";
+import { useMobileStore,useLoginStore } from './stores/index';
 import { useRouter } from "vue-router";
-const store = useStore()
+const mobileStore = useMobileStore()
+const loginStore = useLoginStore()
 const router = useRouter()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const isLogin = computed(() => {
-    return store.state.isLogin
+    return loginStore.status
 })
 
 // const toLink = (val) => {

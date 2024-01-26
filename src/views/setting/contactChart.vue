@@ -51,7 +51,6 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import { ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 import {
@@ -68,7 +67,6 @@ import { Bar } from 'vue-chartjs'
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const router = useRouter()
-const store = useStore()
 
 const memberList = ref([
     {
@@ -219,11 +217,6 @@ const init = async() => {
 }
 
 init()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
-
 
 </script>
 

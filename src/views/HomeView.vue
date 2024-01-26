@@ -268,8 +268,7 @@
 <script setup>
 /*eslint-disable*/
 import {getBannerSearch,getNewsSearch} from '@/api/api'
-import { useStore } from "vuex";
-
+import { useMobileStore } from './stores/index';
 import {ref,computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { useRouter } from "vue-router";
@@ -278,13 +277,13 @@ import 'swiper/css/navigation';
 import tailView from "@/components/tailView.vue"
 import bookView from "@/components/bookView.vue"
 
-const store = useStore()
+const mobileStore = useMobileStore()
 const router = useRouter()
 const bannerData = ref([])
 const newsData = ref([])
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const init = async() => {

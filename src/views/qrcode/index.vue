@@ -99,16 +99,16 @@
 /*eslint-disable*/
 import { ref,computed,onMounted,provide } from 'vue';
 import { checkQR } from '@/api/api'
-import { useStore } from "vuex";
+import { useMobileStore } from './stores/index';
 import { QrcodeStream } from 'vue-qrcode-reader'
 import dialogView from "@/components/dialogView.vue"
 
 onMounted(() => {
 })
 
-const store = useStore()
+const mobileStore = useMobileStore()
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 /*
 torchActive 手電筒狀態

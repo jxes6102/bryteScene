@@ -168,10 +168,11 @@ import { getCall,initTodayRollCall,initTodayPickup } from '@/api/api'
 import { ref,computed,onBeforeUnmount,onMounted } from 'vue'
 import { useRouter } from "vue-router";
 // import dialogView from "@/components/dialogView.vue"
-import { useStore } from "vuex";
+import { useAnnounceStore,useMobileStore } from './stores/index';
 import 'animate.css'
 
-const store = useStore()
+const announceStore = useAnnounceStore()
+const mobileStore = useMobileStore()
 const router = useRouter()
 
 // {
@@ -1167,7 +1168,7 @@ const showList = computed(() => {
   return target
 })
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 const init = () => {
     if(isMobile.value){
@@ -1205,7 +1206,7 @@ const getImageUrl = (path) => {
 };
 
 const closeAnnounce = () => {
-    store.commit('changeAnnounceStatus',false)
+    announceStore.closeAnnounce()
 }
 
 </script>

@@ -48,10 +48,8 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import {ref,computed,onBeforeUnmount } from 'vue'
 import { useRouter } from "vue-router";
-const store = useStore()
 const router = useRouter()
 
 const bookData = ref([])

@@ -321,18 +321,19 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
 import { ref,computed,provide } from 'vue'
 import { useRouter } from "vue-router";
 import dialogView from "@/components/dialogView.vue"
 import conversationView from "@/components/conversationView.vue"
 import dateSelect from '@/components/dateSelect.vue'
+import { useMobileStore,useUserStore } from './stores/index'
 
 const router = useRouter()
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const isSchool = computed(() => {
@@ -418,7 +419,7 @@ const init = async() => {
 init()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const toContactChart = () => {

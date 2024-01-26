@@ -61,23 +61,24 @@
 /*eslint-disable*/
 import { testLogout } from '@/api/api'
 import { ref,computed,watch } from "vue";
-import { useStore } from "vuex";
+import { useMobileStore,useUserStore,useLoginStore } from './stores/index';
 import { useRouter,useRoute } from "vue-router";
-
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
+const loginStore = useLoginStore()
 const router = useRouter()
 const route = useRoute()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const isLogin = computed(() => {
-    return store.state.isLogin
+    return loginStore.status
 })
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const statement = computed(() => {

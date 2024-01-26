@@ -60,15 +60,20 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
+import { useMobileStore,useUserStore } from './stores/index';
 import { ref,computed,provide,nextTick,onMounted } from 'vue'
 import { useRouter } from "vue-router";
 
 const router = useRouter()
-const store = useStore()
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
+
+const isMobile = computed(() => {
+    return mobileStore.isMobile
+})
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const isSchool = computed(() => {
@@ -157,10 +162,6 @@ const init = async() => {
 }
 
 init()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 const countPosition = (roleType) => {
     return ((roleType == 2 && roleID.value == 2) || (roleType == 3 && roleID.value == 3) )

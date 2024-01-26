@@ -6,12 +6,9 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
-
 import {ref,computed,watch } from 'vue'
 import { useRouter,useRoute } from "vue-router";
 
-const store = useStore()
 const router = useRouter()
 const route = useRoute()
 

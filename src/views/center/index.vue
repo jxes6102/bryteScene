@@ -45,14 +45,15 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
+import { useUserStore,useAnnounceStore,useLoginStore } from '@/stores/index';
 import { getUserMenu,getProfile,testLogout } from '@/api/api'
 import { ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 
 const router = useRouter()
-const store = useStore()
-
+const userStore = useUserStore()
+const loginStore = useLoginStore()
+const announceStore = useAnnounceStore()
 const userMenu = ref(null)
 const userProfile = ref(null)
 const init = async() => {
@@ -94,7 +95,7 @@ const toLink = (item) => {
 }
 
 const roleID = computed({
-  get: () => store.state.roleID,
+  get: () => userStore.roleID,
   set: (val) => {
     return val
   },
@@ -102,14 +103,14 @@ const roleID = computed({
 
 const changeRole = (value) => {
     //console.log('value',value)
-    store.commit('setRole',value)
+    userStore.setRoleID(value)
 }
 
 const logout = async() => {
     await testLogout().then((res) => {
         console.log('res',res.data)
         if(res.data.status){
-            store.commit('clearToken')
+            loginStore.clearToken()
             router.push({ path: '/' })
         }else{
             console.log(res.data.message)
@@ -118,7 +119,7 @@ const logout = async() => {
 }
 
 const openAnnounce = () => {
-    store.commit('changeAnnounceStatus',true)
+    announceStore.openAnnounce()
 }
 
 </script>

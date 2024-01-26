@@ -20,10 +20,12 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
+import { useMobileStore,useUserStore } from './stores/index';
 import { ref,computed,watch } from 'vue'
 import { useRouter } from "vue-router";
 
+const mobileStore = useMobileStore()
+const userStore = useUserStore()
 const emit = defineEmits(['changeDate'])
 const props = defineProps({
     disabledDate: {
@@ -43,14 +45,13 @@ const props = defineProps({
 })
 
 const router = useRouter()
-const store = useStore()
 
 const isMobile = computed(() => {
-    return store.state.isMobile
+    return mobileStore.isMobile
 })
 
 const roleID = computed(() => {
-    return store.state.roleID
+    return userStore.roleID
 })
 
 const dayData = ref(new Date())

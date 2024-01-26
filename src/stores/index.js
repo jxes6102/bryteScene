@@ -62,8 +62,12 @@ export const useLoginStore = defineStore('login', () => {
 
 export const useUserStore = defineStore('user', () => {
     const information = ref({})
+    const roleID = ref(1)
     const setUserInformation = (value) => {
         information.value = value
     }
-    return { information,setUserInformation }
+    const setRoleID = (value) => {
+        roleID.value = value
+    }
+    return { information,roleID,setUserInformation,setRoleID }
 })

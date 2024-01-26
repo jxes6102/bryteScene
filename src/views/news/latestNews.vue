@@ -56,17 +56,11 @@
 <script setup>
 /*eslint-disable*/
 import {getNewsSearch} from '@/api/api'
-import { useStore } from "vuex";
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 
-const store = useStore()
 const router = useRouter()
 const newsData = ref([])
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 const init = async() => {
     // //最新消息

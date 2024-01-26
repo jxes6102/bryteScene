@@ -23,17 +23,10 @@
 
 <script setup>
 /*eslint-disable*/
-import { useStore } from "vuex";
-
 import {ref,computed } from 'vue'
 import { useRouter } from "vue-router";
 
-const store = useStore()
 const router = useRouter()
-
-const isMobile = computed(() => {
-    return store.state.isMobile
-})
 
 const list = ref([
     {
